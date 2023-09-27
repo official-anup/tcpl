@@ -30,6 +30,36 @@ from django.contrib.gis.serializers.geojson import Serializer as GeoJSONSerializ
 from django.contrib.gis.db.models import Q
 from django.contrib.auth.forms import AuthenticationForm
 import json
+from django.contrib.auth import authenticate,login
+
+
+
+
+class UserLoginView(LoginView):
+    template_name = 'accounts/auth-signin.html'
+
+    authentication_form = LoginForm  # Use Django's built-in AuthenticationForm
+
+    def form_valid(self, form):
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+
+        # Authenticate the user using Django's built-in authentication
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            login(self.request, user)  # Log in the authenticated user
+            if username == 'admin123':
+                return redirect('admin123')
+            else:
+                try:
+                    customer = Customer2.objects.get(user=user)
+                    return redirect('basemap')
+                except Customer2.DoesNotExist:
+                    return redirect('profile')
+
+        return super().form_valid(form)
+ 
 
 @login_required
 def index(request):

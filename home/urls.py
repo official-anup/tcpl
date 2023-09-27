@@ -8,7 +8,7 @@ from django.conf.urls.static import static
 from .forms import Customer2
 
 urlpatterns = [
-  path(''       , views.index,  name='index'),
+  path('index/', views.index,  name='index'),
   path('tables/', views.tables, name='tables'),
 
   path('profile/', views.ProfileView.as_view(), name='profile'),
