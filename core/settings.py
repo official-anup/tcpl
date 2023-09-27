@@ -228,8 +228,8 @@ REST_FRAMEWORK = {
 }
 ########################################
 
-# GDAL_LIBRARY_PATH = 'C:/Users/91766/Desktop/zone1/.env/Lib/site-packages/osgeo/gdal304.dll' 
-# GEOS_LIBRARY_PATH = 'C:/Users/91766/Desktop/zone1/.env/Lib/site-packages/osgeo/geos_c.dll'
+GDAL_LIBRARY_PATH = 'C:/Users/91766/Desktop/zone1/.env/Lib/site-packages/osgeo/gdal304.dll' 
+GEOS_LIBRARY_PATH = 'C:/Users/91766/Desktop/zone1/.env/Lib/site-packages/osgeo/geos_c.dll'
 
 # C:\Users\91766\Desktop\zone1\.env\Lib\site-packages\osgeo
 
